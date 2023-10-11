@@ -2,10 +2,35 @@ function moduleProject3() {
 
   // 👉 TASK 1 - Write a `buildNav` component that returns a nav
 
-  function buildNav(links) {
+  function buildNav(linksArray) {
     //  ✨ do your magic here
-    return document.createElement('nav')
+    const nav = document.createElement('nav')
+
+    let links = linksArray.map( linkObj => {
+
+      // Destructure the array 
+      let { href, textContent, title } = linkObj;
+
+      // create anchor element
+      let a = document.createElement('a')
+
+      // set up anchor element 
+      a.href = href
+      a.textContent = textContent
+      a.title = title
+
+      // append anchor to nav 
+      nav.appendChild(a)
+      
+
+
+    })
+
+    return nav
   }
+  
+
+  
 
   // ❗ DOM creation using your `buildNav` component (do not change):
   document.querySelector('header').appendChild(buildNav([
